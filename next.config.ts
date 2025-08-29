@@ -1,3 +1,4 @@
+// Codes by mahdi tasha
 // Importing part
 import type { NextConfig } from "next";
 
