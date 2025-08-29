@@ -28,11 +28,11 @@ export default function RootLayout({ children }: RootLayoutProps): ReactNode {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "bg-background text-foreground lg:overflow-y-hidden overflow-x-hidden lg:h-dvh h-auto",
+          "bg-neutral-950 text-white overflow-hidden",
           JetbrainsFont.className,
         )}
       >
-        {children}
+        <div className="mx-auto max-w-[1000px] p-3">{children}</div>
       </body>
     </html>
   );
