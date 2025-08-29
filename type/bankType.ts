@@ -51,7 +51,6 @@ export type BankNameType =
 
 export interface BankIconPropsType extends HTMLAttributes<SVGElement> {
   name: BankNameType;
-  isColored?: boolean;
 }
 
 export interface BankInfo {

@@ -15,13 +15,15 @@ Useful for displaying bank names, logos, card BIN details, and more in your Reac
 
 ---
 
-## 📦 Installation
+## 📦 Usage
 
-```bash
-npm install persian-bank-react
-# or
-yarn add persian-bank-react
-```
+The main scripts of this repo is in :
+
+- `/components/ui/bankIcon.tsx`
+- `/components/lib/bankUtils.ts`
+- `/components/type/bankType.ts`
+
+so you Should grab the content of this files and paste them into where ever you want in your project.
 
 ---
 
@@ -47,7 +49,7 @@ import { BankIcon } from "persian-bank-utils-react";
 export default function Example() {
   return (
     <div>
-      <BankIcon name="meli" isColored={false} />
+      <BankIcon name="meli" />
     </div>
   );
 }
@@ -73,7 +75,6 @@ Returns:
 Props:
 
 - `name: BankNameType` → Name of the bank to return icon
-- `isColored: boolean` → Using colors or black and white colors
 - and Other SVG props
 
 ---

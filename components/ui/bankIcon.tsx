@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 // Creating and exporting BankIcon component as default
 export default function BankIcon({
   name,
-  isColored = true,
   ...props
 }: BankIconPropsType): ReactNode {
   // Conditional rendering
