@@ -18,6 +18,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import BankIcon from "./ui/bankIcon";
+import { getBankFromCard } from "@/lib/bankUtils";
 
 // Defining form schema
 const formSchema = z.object({
@@ -42,7 +44,8 @@ export default function CreditCardForm(): ReactNode {
   };
 
   // Defining variables
-  const creditCard = form.watch("creditCardNumber");
+  const creditCardBin = form.watch("creditCardNumber").slice(0, 6);
+  const bankInfo = getBankFromCard(creditCardBin);
 
   // Returning JSX
   return (
@@ -50,22 +53,28 @@ export default function CreditCardForm(): ReactNode {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         action="#"
-        className="space-y-3 mx-auto p-3 rounded-lg lg:max-w-[500px]"
+        className="mx-auto p-3 rounded-lg lg:max-w-[500px]"
       >
+        <div className="flex items-center justify-start gap-3 mb-5">
+          <BankIcon name={bankInfo?.type || "unknown"} className="size-10" />
+          <div className="flex-1">
+            <span className="text-sm">{bankInfo?.name || "Unknown"}</span>
+          </div>
+        </div>
         <FormField
           control={form.control}
           name="creditCardNumber"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Credit Card (Iranian) :</FormLabel>
+              <FormLabel className="mb-3">Credit Card (Iranian) :</FormLabel>
               <FormControl>
                 <Input {...field} placeholder="0000000000000000" />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="mt-3" />
             </FormItem>
           )}
         />
-        <Button type="submit" className="cursor-pointer">
+        <Button type="submit" className="cursor-pointer mt-10">
           Submit
         </Button>
       </form>
