@@ -1,7 +1,9 @@
+// Importing eslint configs
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 
+// Defining variables
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -9,6 +11,7 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
+// Defining configs of eslint
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
@@ -22,4 +25,5 @@ const eslintConfig = [
   },
 ];
 
+// Exporting configs
 export default eslintConfig;

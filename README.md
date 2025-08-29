@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Persian Banking Utilities for React
 
-## Getting Started
+A set of utility functions and React components to easily access information and icons of the Persian banking system.  
+Useful for displaying bank names, logos, card BIN details, and more in your React projects.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- Get bank info by card number and Iban (BIN detection).
+- Ready-to-use React components for showing bank logo.
+- TypeScript support.
+- Lightweight and easy to use.
+- Supports Persian banks.
+
+---
+
+## 📦 Installation
 
 ```bash
-npm run dev
+npm install persian-bank-react
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn add persian-bank-react
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Get Bank Info by Card Number
 
-## Learn More
+```tsx
+import { getBankFromCard } from "persian-bank-utils-react";
 
-To learn more about Next.js, take a look at the following resources:
+const cardNumber = "6037991234567890";
+const bankInfo = getBankFromCard(cardNumber);
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+console.log(bankInfo);
+// { name: "بانک ملی ایران", type: "meli" }
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### React Component Example
 
-## Deploy on Vercel
+```tsx
+import { BankIcon } from "persian-bank-utils-react";
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+export default function Example() {
+  return (
+    <div>
+      <BankIcon name="meli" isColored={false} />
+    </div>
+  );
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📚 API
+
+### `getBankFromCard(cardNumber: string)`
+
+Returns:
+
+```ts
+{
+  name: string; // Persian bank name
+  type: string; // Bank code identifier
+}
+```
+
+### `<BankIcon />`
+
+Props:
+
+- `name: BankNameType` → Name of the bank to return icon
+- `isColored: boolean` → Using colors or black and white colors
+- and Other SVG props
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to open a PR or an issue.
