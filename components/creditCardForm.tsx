@@ -36,6 +36,9 @@ export default function CreditCardForm(): ReactNode {
   // Defining hooks
   const form = useForm({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      creditCardNumber: "0000000000000000",
+    },
   });
 
   // Defining submit event
