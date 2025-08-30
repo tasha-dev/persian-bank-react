@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { cn } from "@/util/cn";
 import "@/style/index.css";
+import { Toaster } from "@/components/ui/sonner";
 
 // Defining metadata
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: RootLayoutProps): ReactNode {
           JetbrainsFont.className,
         )}
       >
+        <Toaster position="top-center" />
         <div className="mx-auto max-w-[1000px] lg:p-10 p-5">{children}</div>
       </body>
     </html>

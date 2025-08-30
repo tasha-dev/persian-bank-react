@@ -20,6 +20,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import BankIcon from "./ui/bankIcon";
 import { getBankFromCard } from "@/lib/bankUtils";
+import { toast } from "sonner";
 
 // Defining form schema
 const formSchema = z.object({
@@ -44,6 +45,7 @@ export default function CreditCardForm(): ReactNode {
   // Defining submit event
   const onSubmit: SubmitHandler<formType> = (data) => {
     console.log(data);
+    toast("Date has been logged to your console !");
   };
 
   // Defining variables
@@ -78,7 +80,7 @@ export default function CreditCardForm(): ReactNode {
           )}
         />
         <Button type="submit" className="cursor-pointer mt-10">
-          Submit
+          Submit (Results in console)
         </Button>
       </form>
     </Form>
