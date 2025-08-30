@@ -32,12 +32,18 @@ so you Should grab the content of this files and paste them into where ever you 
 ### Get Bank Info by Card Number
 
 ```tsx
-import { getBankFromCard } from "persian-bank-utils-react";
+import { getBankFromCard, getBankFromSheba } from "persian-bank-utils-react";
 
 const cardNumber = "6037991234567890";
+const sheba = "120170000000000000000000";
+
 const bankInfo = getBankFromCard(cardNumber);
+const shebaInfo = getBankFromSheba(cardNumber);
 
 console.log(bankInfo);
+// { name: "بانک ملی ایران", type: "meli" }
+
+console.log(shebaInfo);
 // { name: "بانک ملی ایران", type: "meli" }
 ```
 
@@ -59,7 +65,7 @@ export default function Example() {
 
 ## 📚 API
 
-### `getBankFromCard(cardNumber: string)`
+### `getBankFromCard(cardNumber: string)` & `getBankFromSheba(cardNumber: string)`
 
 Returns:
 
